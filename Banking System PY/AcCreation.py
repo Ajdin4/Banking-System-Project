@@ -39,6 +39,8 @@ class AcCreation:
                 hold = False
         self.__balance = int(balance)
         
+    #random generated pin function
+        
     def getNameAndSurname(self):
         return self.__name +" "+self.__surname
     
