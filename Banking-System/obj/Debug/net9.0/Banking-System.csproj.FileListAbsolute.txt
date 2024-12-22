@@ -1,0 +1,15 @@
+C:\Users\huawei\Documents\GitHub\Banking-System-Project\Banking-System\obj\Debug\net9.0\Banking-System.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\huawei\Documents\GitHub\Banking-System-Project\Banking-System\obj\Debug\net9.0\Banking-System.AssemblyInfoInputs.cache
+C:\Users\huawei\Documents\GitHub\Banking-System-Project\Banking-System\obj\Debug\net9.0\Banking-System.AssemblyInfo.cs
+C:\Users\huawei\Documents\GitHub\Banking-System-Project\Banking-System\obj\Debug\net9.0\Banking-System.csproj.CoreCompileInputs.cache
+C:\Users\huawei\Documents\GitHub\Banking-System-Project\Banking-System\obj\Debug\net9.0\Banking-System.sourcelink.json
+C:\Users\huawei\Documents\GitHub\Banking-System-Project\Banking-System\bin\Debug\net9.0\Banking-System.exe
+C:\Users\huawei\Documents\GitHub\Banking-System-Project\Banking-System\bin\Debug\net9.0\Banking-System.deps.json
+C:\Users\huawei\Documents\GitHub\Banking-System-Project\Banking-System\bin\Debug\net9.0\Banking-System.runtimeconfig.json
+C:\Users\huawei\Documents\GitHub\Banking-System-Project\Banking-System\bin\Debug\net9.0\Banking-System.dll
+C:\Users\huawei\Documents\GitHub\Banking-System-Project\Banking-System\bin\Debug\net9.0\Banking-System.pdb
+C:\Users\huawei\Documents\GitHub\Banking-System-Project\Banking-System\obj\Debug\net9.0\Banking-System.dll
+C:\Users\huawei\Documents\GitHub\Banking-System-Project\Banking-System\obj\Debug\net9.0\refint\Banking-System.dll
+C:\Users\huawei\Documents\GitHub\Banking-System-Project\Banking-System\obj\Debug\net9.0\Banking-System.pdb
+C:\Users\huawei\Documents\GitHub\Banking-System-Project\Banking-System\obj\Debug\net9.0\Banking-System.genruntimeconfig.cache
+C:\Users\huawei\Documents\GitHub\Banking-System-Project\Banking-System\obj\Debug\net9.0\ref\Banking-System.dll
