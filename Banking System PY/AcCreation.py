@@ -40,6 +40,10 @@ class AcCreation:
                 if choice.lower() =="yes":
                     self.__username = username
                     hold = False
+                elif choice.lower()=="no":
+                    print("Choose another username. ")
+                else:
+                    print("please respond with 'yes' or 'no'.") 
             else:
                 print("username taken, choose another one")
 
@@ -50,6 +54,8 @@ class AcCreation:
             if pin.isdigit() and len(pin)>=4:
                 self.__pin = pin
                 hold = False
+            else:
+                print("PIN must ve numeric and atleast 4 digits long")
                          
     def setPhoneNum(self):
         hold = True
@@ -57,18 +63,19 @@ class AcCreation:
             phoneNum = input("Please enter a valid phone number: ")
             if phoneNum.startswith('0') and phoneNum.isdigit() and '-' not in phoneNum:
                 hold = False
-            elif phoneNum.isdigit() and '-' not in phoneNum:
-                hold = False
-                
-        self.__phoneNum = phoneNum
+                self.__phoneNum = phoneNum
+            else:
+                print("Phone number must be numeric and can start with zero. ")
         
     def setInitDeposit(self):
         self.__balance = 0
         hold = True
-        while(hold):
+        while hold:
             balance = input("Please enter your initial deposit if there is any: ")
             if balance.isdigit() and '-' not in balance:
                 hold = False
+            else:
+                print("Deposit muste be numeric and positive.")
         self.__balance = int(balance)
     
     def addTransaction(self,transaction_type,amount):
