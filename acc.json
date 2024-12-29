@@ -1,0 +1,17 @@
+[
+    {
+        "Name": "saban",
+        "Surname": "edisovic",
+        "Username": "sabo",
+        "Pin": "5432",
+        "PhoneNumber": "0987654",
+        "Balance": 2000,
+        "Transactions": [
+            {
+                "type": "Deposit",
+                "amount": 1000,
+                "time": "2024-12-29T14:42:45.481Z"
+            }
+        ]
+    }
+]
