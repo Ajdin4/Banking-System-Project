@@ -113,17 +113,15 @@ class AcCreation {
     try {
       let accounts = [];
       
-      // Check if the acc.json file exists and has content
+      
       if (fs.existsSync(AcCreation.accStorage)) {
         const fileContent = fs.readFileSync(AcCreation.accStorage, "utf8");
-        
-        // Only parse if the file has content
         if (fileContent.trim() !== "") {
           try {
             accounts = JSON.parse(fileContent);
           } catch (parseError) {
             console.error("Error parsing JSON:", parseError.message);
-            accounts = [];  // Initialize to an empty array if parsing fails
+            accounts = [];  
           }
         }
       }
