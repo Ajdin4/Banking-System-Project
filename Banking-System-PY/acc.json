@@ -1,29 +1,20 @@
 [
-   {
-      "Name": "tarik",
-      "Surname": "skaljic",
-      "Phone number": "061989377",
-      "Balance": 1000,
-      "Username": "skalja",
-      "Pin": "0407",
-      "Transactions": []
-   },
-   {
-      "Name": "ajdin",
-      "Surname": "mujkanovic",
-      "Phone number": "061888668",
-      "Balance": 1000,
-      "Username": "mujk",
-      "Pin": "1234",
-      "Transactions": []
-   },
-   {
-      "Name": "bajram",
-      "Surname": "plavovic",
-      "Phone number": "061889234",
-      "Balance": 1000,
-      "Username": "bajro",
-      "Pin": "4321",
-      "Transactions": []
-   }
+    {
+        "Name": "tarik",
+        "Surname": "skaljic",
+        "Phone number": "061989377",
+        "Balance": 1000,
+        "Username": "skalja",
+        "Pin": "0407",
+        "Transactions": []
+    },
+    {
+        "Name": "ajdin",
+        "Surname": "mujkanovic",
+        "Phone number": "061888668",
+        "Balance": 1000,
+        "Username": "mujk",
+        "Pin": "1234",
+        "Transactions": []
+    }
 ]
