@@ -1,26 +1,5 @@
 [
     {
-        "Name": "ajdin",
-        "Surname": "mujkanovic",
-        "Username": "mujko",
-        "Pin": "1234",
-        "PhoneNumber": "1234567",
-        "Balance": 4570,
-        "Transactions": [
-            {
-                "type": "Deposit",
-                "amount": 3213,
-                "time": "2024-12-29T13:33:35.955Z"
-            },
-            {
-                "type": "Transfer In",
-                "amount": 123,
-                "time": "2024-12-29T13:34:22.143Z",
-                "from": "skalja"
-            }
-        ]
-    },
-    {
         "Name": "tarik",
         "Surname": "skaljic",
         "Username": "skalja",

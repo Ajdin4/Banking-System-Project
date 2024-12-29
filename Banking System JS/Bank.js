@@ -2,6 +2,9 @@
 const readlineSync = require("readline-sync");
 const fs = require("fs");
 const AcCreation = require("./AcCreation");
+const admin_password = "admin123";
+const CURRENCY = 'BAM';
+
 
 function loadAccounts() {
   try {
@@ -143,6 +146,96 @@ function accountMenu(account, allAccounts) {
   }
 }
 
+function adminPanel() {
+  console.log('--- Admin Panel ---');
+  const password = readlineSync.question('Enter admin password: ', { hideEchoBack: true });
+
+  if (password !== admin_password) {
+      console.log('Incorrect password. Access denied.');
+      return;
+  }
+
+  let accounts = loadAccounts();
+  let toggle = true;
+
+  while (toggle) {
+      console.log('\nAdmin Panel');
+      console.log('1. View all accounts');
+      console.log('2. View all transaction history');
+      console.log('3. Delete an account');
+      console.log('4. Exit Admin Panel');
+
+      const choice = readlineSync.questionInt('Enter a valid choice: ');
+
+      switch (choice) {
+          case 1:
+              console.log('\nAll accounts:');
+              if (accounts.length > 0) {
+                  accounts.forEach(acc => {
+                      console.log(`\nName: ${acc.Name} ${acc.Surname}`);
+                      console.log(`Username: ${acc.Username}`);
+                      console.log(`Balance: ${acc.Balance} ${CURRENCY}`);
+                  });
+              } else {
+                  console.log('No accounts available.');
+              }
+              break;
+
+          case 2: 
+              console.log('\nTransaction history:');
+              if (accounts.length > 0) {
+                  accounts.forEach(acc => {
+                      console.log(`\nTransactions for ${acc.Username}:`);
+                      if (acc.Transactions && acc.Transactions.length > 0) {
+                          acc.Transactions.forEach(tr => {
+                              console.log(
+                                  `${tr.time}: ${tr.type} of ${tr.amount} ${CURRENCY} ${
+                                      tr.to ? `(To: ${tr.to})` : ''
+                                  } ${tr.from ? `(From: ${tr.from})` : ''}`
+                              );
+                          });
+                      } else {
+                          console.log('No transactions yet.');
+                      }
+                  });
+              } else {
+                  console.log('No accounts available.');
+              }
+              break;
+
+          case 3: // Delete an account
+              const username = readlineSync.question('Enter the username of the account to delete: ');
+              const accountIndex = accounts.findIndex(acc => acc.Username === username);
+
+              if (accountIndex !== -1) {
+                  const confirm = readlineSync.question(
+                      'Are you sure you want to delete this account? (yes for confirmation, anything else for cancellation): '
+                  );
+                  if (confirm.toLowerCase() === 'yes') {
+                      accounts.splice(accountIndex, 1);
+                      saveAccounts(accounts);
+                      console.log('Account successfully deleted!');
+                  } else {
+                      console.log('Account deletion cancelled.');
+                  }
+              } else {
+                  console.log('Account not found.');
+              }
+              break;
+
+          case 4: // Exit Admin Panel
+              console.log('Exiting admin panel...');
+              toggle = false;
+              break;
+
+          default:
+              console.log('Invalid choice. Please enter a number between 1 and 4.');
+              break;
+      }
+  }
+}
+
+
 function main() {
   let switcher = true;
   while (switcher) {
@@ -150,7 +243,8 @@ function main() {
       console.log("Welcome to the bank!");
       console.log("1. Create an account.");
       console.log("2. Login.");
-      console.log("3. Exit.");
+      console.log("3. Admin Panel");
+      console.log("4. Exit.");
 
       const choice = readlineSync.question("Enter your choice: ");
       if (choice === "1") {
@@ -170,7 +264,11 @@ function main() {
         } else {
           console.log("Invalid username or pin.");
         }
-      } else if (choice === "3") {
+      }
+      else if(choice === "3"){
+        adminPanel();
+      }
+      else if (choice === "4") {
         console.log("Exiting...");
         switcher = false;
       } else {
