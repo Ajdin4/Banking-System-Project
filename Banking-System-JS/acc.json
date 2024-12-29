@@ -35,5 +35,14 @@
                 "to": "mujko"
             }
         ]
+    },
+    {
+        "Name": "tarik",
+        "Surname": "skaljic",
+        "Username": "k",
+        "Pin": "1234",
+        "PhoneNumber": "9909098",
+        "Balance": 10000,
+        "Transactions": []
     }
 ]

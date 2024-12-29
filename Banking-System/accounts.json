@@ -1,1 +1,10 @@
-[]
+[
+  {
+    "AccountNumber": 1,
+    "Name": "ajdin",
+    "Password": "1234",
+    "Type": "current",
+    "Balance": 1000.0,
+    "Transactions": []
+  }
+]
