@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "Hh9l+0RPDoA=",
+  "dgSpecHash": "Rx+Kfq0wbvc=",
   "success": true,
-  "projectFilePath": "C:\\Users\\huawei\\Documents\\GitHub\\Banking-System-Project\\Banking-System\\Banking-System.csproj",
+  "projectFilePath": "C:\\Users\\korisnik\\Documents\\GitHub\\Banking-System-Project\\Banking-System\\Banking-System.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\huawei\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
+    "C:\\Users\\korisnik\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
   ],
   "logs": []
 }
