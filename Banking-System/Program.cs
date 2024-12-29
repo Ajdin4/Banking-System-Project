@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
+using Newtonsoft.Json;
 
 public class Program
 {
@@ -7,6 +9,8 @@ public class Program
 
     public static void Main(string[] args)
     {
+        LoadAccountsFromFile();
+
         while (true)
         {
             Console.WriteLine("Welcome to the Banking System Application");
@@ -32,6 +36,7 @@ public class Program
                         break;
                     case 4:
                         Console.WriteLine("Thank you for using the Banking System Application.");
+                        SaveAccountsToFile();
                         return;
                     default:
                         Console.WriteLine("Invalid option selected. Please try again.");
@@ -80,6 +85,7 @@ public class Program
         };
 
         accounts.Add(account);
+        SaveAccountsToFile();
         Console.WriteLine($"Account created successfully. Your account number is: {account.AccountNumber}");
     }
 
@@ -121,7 +127,7 @@ public class Program
         {
             while (true)
             {
-                Console.WriteLine("Access granted to Admin Panel.");
+                Console.WriteLine("\nAdmin Panel");
                 Console.WriteLine("1. View All Accounts");
                 Console.WriteLine("2. View All Transactions");
                 Console.WriteLine("3. Delete an Account");
@@ -134,7 +140,7 @@ public class Program
                     switch (choice)
                     {
                         case 1:
-                            Console.WriteLine("Account List:");
+                            Console.WriteLine("\nAccount List:");
                             foreach (var account in accounts)
                             {
                                 Console.WriteLine($"Account {account.AccountNumber}, {account.Name}, Balance: {account.Balance}");
@@ -142,7 +148,7 @@ public class Program
                             break;
 
                         case 2:
-                            Console.WriteLine("Transactions list:");
+                            Console.WriteLine("\nTransactions list:");
                             foreach (var account in accounts)
                             {
                                 Console.WriteLine($"Transactions for Account {account.AccountNumber}, {account.Name}:");
@@ -154,15 +160,16 @@ public class Program
                             break;
 
                         case 3:
-                            Console.Write("Enter the account number to delete: ");
+                            Console.Write("\nEnter the account number to delete: ");
                             string? accountNumberInput = Console.ReadLine();
 
                             if (int.TryParse(accountNumberInput, out int accountNumber))
                             {
-                                var accountDelete = accounts.Find(a => a.AccountNumber == accountNumber);
-                                if (accountDelete != null)
+                                var accountToDelete = accounts.Find(a => a.AccountNumber == accountNumber);
+                                if (accountToDelete != null)
                                 {
-                                    accounts.Remove(accountDelete);
+                                    accounts.Remove(accountToDelete);
+                                    SaveAccountsToFile();
                                     Console.WriteLine($"Account {accountNumber} removed successfully!");
                                 }
                                 else
@@ -186,7 +193,7 @@ public class Program
                 }
                 else
                 {
-                    Console.WriteLine("Invalid input. Please enter a number.");
+                    Console.WriteLine("Invalid input. Please enter a valid number.");
                 }
             }
         }
@@ -198,10 +205,11 @@ public class Program
 
     static void Dashboard(Account account)
     {
+        
         while (true)
         {
-            Console.Clear();
-            Console.WriteLine("Account Dashboard");
+            
+            Console.WriteLine("\nAccount Dashboard");
             Console.WriteLine("1. Deposit Funds");
             Console.WriteLine("2. Withdraw Funds");
             Console.WriteLine("3. Make Transaction");
@@ -253,7 +261,8 @@ public class Program
         if (input != null && double.TryParse(input, out double amount) && amount > 0)
         {
             account.Balance += amount;
-            account.AddTransaction($"Deposited {amount}");
+            account.AddTransaction($"[{DateTime.Now}] Deposited {amount}");
+            SaveAccountsToFile();
             Console.WriteLine("Deposit successful!");
         }
         else
@@ -276,7 +285,8 @@ public class Program
             else
             {
                 account.Balance -= amount;
-                account.AddTransaction($"Withdrew {amount}");
+                account.AddTransaction($"[{DateTime.Now}] Withdrew {amount}");
+                SaveAccountsToFile();
                 Console.WriteLine("Withdrawal successful!");
             }
         }
@@ -317,8 +327,12 @@ public class Program
             {
                 sender.Balance -= amount;
                 recipient.Balance += amount;
-                sender.AddTransaction($"Transferred {amount} to account {recipient.AccountNumber}");
-                recipient.AddTransaction($"Received {amount} from account {sender.AccountNumber}");
+
+                string time = DateTime.Now.ToString();
+                sender.AddTransaction($"[{time}] Sent {amount} to account {recipient.AccountNumber}");
+                recipient.AddTransaction($"[{time}] Received {amount} from account {sender.AccountNumber}");
+
+                SaveAccountsToFile();
                 Console.WriteLine("Transaction successful!");
             }
         }
@@ -330,7 +344,7 @@ public class Program
 
     static void ViewTransactionHistory(Account account)
     {
-        Console.WriteLine("Transaction History:");
+        Console.WriteLine("\nTransaction History:");
         if (account.Transactions.Count == 0)
         {
             Console.WriteLine("No transactions found.");
@@ -341,6 +355,33 @@ public class Program
             {
                 Console.WriteLine(transaction);
             }
+        }
+    }
+
+    public static void SaveAccountsToFile()
+    {
+        try
+        {
+            File.WriteAllText("accounts.json", JsonConvert.SerializeObject(accounts, Formatting.Indented));
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error saving accounts: {ex.Message}");
+        }
+    }
+
+    public static void LoadAccountsFromFile()
+    {
+        try
+        {
+            if (File.Exists("accounts.json"))
+            {
+                accounts = JsonConvert.DeserializeObject<List<Account>>(File.ReadAllText("accounts.json")) ?? new List<Account>();
+            }
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error loading accounts: {ex.Message}");
         }
     }
 }
