@@ -46,7 +46,7 @@ def admin_panel(accounts):
                 print("\nAll accounts: ")
                 if accounts:
                     for a in accounts:
-                        print(f"Name: {a['Name']} {a['Surname']}\nUsername: {a['Username']}\nBalance: {a['Balance']} {currency}")
+                        print(f"\nName: {a['Name']} {a['Surname']}\nUsername: {a['Username']}\nBalance: {a['Balance']} {currency}")
                 else:
                     print("No accounts available.")
             
@@ -66,7 +66,7 @@ def admin_panel(accounts):
                 else:
                     print("No accounts available.")
             elif choice == 3:
-                username = input("Enter the username of the account to delete")
+                username = input("Enter the username of the account to delete: ")
                 account_to_delete = next((acc for acc in accounts if acc["Username"] == username), None)
                 
                 if account_to_delete:
@@ -103,7 +103,7 @@ def account_menu(account_data, all_accounts):
             print("5. Transfer money")
             print("6. Log out")
             
-            choice = int(input("enter a valid choice: "))
+            choice = int(input("\nenter a valid choice: "))
             
             if choice == 1:
                 print("\nAccount Details:")
@@ -213,9 +213,10 @@ def main():
             print("2. log in into an existing account")
             # when 2 is pressed user is prompted for a username and password
             print("3. Admin panel")
+            #acceses the admin panel with a specific password
             print("4. exit the bank")
             # quits the program
-            choice = int(input("enter a valid choice: "))
+            choice = int(input("\nenter a valid choice: "))
             if choice == 1:
                 print("\nCreating a new account...")
                 newAccount = AcCreation()
@@ -225,7 +226,7 @@ def main():
                 
             elif choice == 2:
                 accounts = load_acc()
-                username = input("Enter your username: ")
+                username = input("\nEnter your username: ")
                 pin = input("enter your pin: ")
                 account = find_acc(username,pin,accounts)
                 if account:

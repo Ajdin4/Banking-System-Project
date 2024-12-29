@@ -3,10 +3,17 @@
         "Name": "tarik",
         "Surname": "skaljic",
         "Phone number": "061989377",
-        "Balance": 1000,
+        "Balance": 1600,
         "Username": "skalja",
         "Pin": "0407",
-        "Transactions": []
+        "Transactions": [
+            {
+                "type": "Transfer In",
+                "amount": 600,
+                "timestamp": "2024-12-29 22:32:30",
+                "from": "zena"
+            }
+        ]
     },
     {
         "Name": "ajdin",
@@ -16,5 +23,40 @@
         "Username": "mujk",
         "Pin": "1234",
         "Transactions": []
+    },
+    {
+        "Name": "suad",
+        "Surname": "skaljic",
+        "Phone number": "0981322639",
+        "Balance": 10000,
+        "Username": "babo",
+        "Pin": "2211",
+        "Transactions": []
+    },
+    {
+        "Name": "fatima",
+        "Surname": "skaljic",
+        "Phone number": "0603561005",
+        "Balance": 9000,
+        "Username": "zena",
+        "Pin": "2810",
+        "Transactions": [
+            {
+                "type": "Deposit",
+                "amount": 100,
+                "timestamp": "2024-12-29 22:31:52"
+            },
+            {
+                "type": "withdrawal",
+                "amount": 500,
+                "timestamp": "2024-12-29 22:32:04"
+            },
+            {
+                "type": "Transfer Out",
+                "amount": 600,
+                "timestamp": "2024-12-29 22:32:30",
+                "to": "skalja"
+            }
+        ]
     }
 ]
