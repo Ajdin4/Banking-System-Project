@@ -20,14 +20,14 @@ public class Program
             Console.WriteLine("4. Exit");
             Console.Write("Please select an option: ");
 
-            string? input = Console.ReadLine();
+            string input = Console.ReadLine();
             if (int.TryParse(input, out int option))
             {
                 switch (option)
                 {
                     case 1:
                         CreateAccount();
-                        break;
+
                     case 2:
                         Login();
                         break;

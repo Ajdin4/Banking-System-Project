@@ -1,0 +1,17 @@
+[
+    {
+        "Name": "bajram",
+        "Surname": "plavovic",
+        "Phone number": "060232232",
+        "Balance": 2960,
+        "Username": "bajram",
+        "Pin": "1234",
+        "Transactions": [
+            {
+                "type": "withdrawal",
+                "amount": 40,
+                "timestamp": "2024-12-30 09:37:48"
+            }
+        ]
+    }
+]
