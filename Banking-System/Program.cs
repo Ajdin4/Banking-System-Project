@@ -27,7 +27,7 @@ public class Program
                 {
                     case 1:
                         CreateAccount();
-
+                        break;
                     case 2:
                         Login();
                         break;
